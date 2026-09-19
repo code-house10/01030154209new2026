@@ -221,6 +221,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 .floatingCall strong{direction:ltr}
 
+
+.videoClose{
+ position:absolute;
+ top:10px;
+ right:10px;
+ width:38px;
+ height:38px;
+ border-radius:50%;
+ border:0;
+ background:rgba(0,0,0,.65);
+ color:#fff;
+ font-size:22px;
+ font-weight:900;
+ cursor:pointer;
+ z-index:5;
+ display:grid;
+ place-items:center;
+}
+.videoClose:hover{
+ background:#19b514;
+}
+
 </style>
 </head>
 <body>
@@ -451,12 +473,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 
 
-<div class="videoFloat" id="floatVideo1">
+<div class="videoFloat" id="floatVideo1"><button class="videoClose" onclick="closeFloatVideo(1)">×</button>
   <div class="videoFloatTitle">الجمهورية لنقل العفش بأمان</div>
   <iframe src="https://www.youtube.com/embed/gkGtL6szVdw?autoplay=1&mute=1&playsinline=1" allowfullscreen></iframe>
 </div>
 
-<div class="videoFloat" id="floatVideo2">
+<div class="videoFloat" id="floatVideo2"><button class="videoClose" onclick="closeFloatVideo(2)">×</button>
   <div class="videoFloatTitle">نقدم جميع خدمات نقل العفش</div>
   <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ?autoplay=1&mute=1&playsinline=1" allowfullscreen></iframe>
 </div>
@@ -492,14 +514,14 @@ window.addEventListener("scroll",()=>{
  const percent=max ? (window.scrollY/max)*100 : 0;
 
  if(percent>=5 && percent<8){
-   v1.classList.add("show");
+   if(!closedVideo1){ v1.classList.add("show"); }
    v2.classList.remove("show");
    f1.src=s1;
    f2.src="";
  }
  else if(percent>=8){
    v1.classList.remove("show");
-   v2.classList.add("show");
+   if(!closedVideo2){ v2.classList.add("show"); }
    f2.src=s2;
    f1.src="";
  }
@@ -509,6 +531,23 @@ window.addEventListener("scroll",()=>{
  }
 });
 })();
+</script>
+
+
+<script>
+let closedVideo1 = false;
+let closedVideo2 = false;
+
+function closeFloatVideo(num){
+  if(num === 1){
+    closedVideo1 = true;
+    document.getElementById("floatVideo1").classList.remove("show");
+  }
+  if(num === 2){
+    closedVideo2 = true;
+    document.getElementById("floatVideo2").classList.remove("show");
+  }
+}
 </script>
 
 </body>
