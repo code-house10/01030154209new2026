@@ -535,7 +535,7 @@ window.addEventListener("scroll",()=>{
  const max=document.documentElement.scrollHeight-window.innerHeight;
  const percent=max ? (window.scrollY/max)*100 : 0;
 
- if(percent>=5 && percent<12 && !closedVideo1){
+ if(percent>=5 && percent<12 && !closedVideo1 && localStorage.getItem("closedVideo1") !== "true"){
    v1.classList.add("show");
    v2.classList.remove("show");
 
@@ -545,7 +545,7 @@ window.addEventListener("scroll",()=>{
    }
  }
 
- if(percent>=12 && !closedVideo2){
+ if(percent>=12 && !closedVideo2 && localStorage.getItem("closedVideo2") !== "true"){
    v1.classList.remove("show");
    v2.classList.add("show");
 
@@ -576,6 +576,12 @@ function closeFloatVideo(num){
     document.getElementById("floatVideo2").classList.remove("show");
   }
 }
+  if(num === 2){
+    closedVideo2 = true;
+    localStorage.setItem("closedVideo2","true");
+    document.getElementById("floatVideo2").classList.remove("show");
+  }
+}
 </script>
 
 
@@ -585,6 +591,20 @@ document.querySelectorAll(".videoFloat iframe").forEach(frame=>{
    frame.classList.add("loaded");
  });
 });
+</script>
+
+
+<script>
+(function(){
+ if(localStorage.getItem("closedVideo1")==="true"){
+   const v=document.getElementById("floatVideo1");
+   if(v) v.classList.remove("show");
+ }
+ if(localStorage.getItem("closedVideo2")==="true"){
+   const v=document.getElementById("floatVideo2");
+   if(v) v.classList.remove("show");
+ }
+})();
 </script>
 
 </body>
