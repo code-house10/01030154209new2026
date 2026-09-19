@@ -193,6 +193,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  .videoFloat iframe{height:330px}
 }
 
+
+.floatingCall{
+ position:fixed;
+ left:22px;
+ bottom:22px;
+ z-index:200;
+ min-width:190px;
+ height:58px;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ padding:10px 16px;
+ border-radius:20px;
+ background:linear-gradient(135deg,#20c51a,#11950d);
+ color:#fff;
+ font-weight:900;
+ box-shadow:0 16px 38px rgba(31,37,41,.25);
+ animation:pulse 2.6s infinite;
+}
+.floatingCall i{
+ width:40px;height:40px;
+ display:grid;place-items:center;
+ border-radius:14px;
+ background:rgba(255,255,255,.2);
+ font-size:20px;
+}
+.floatingCall strong{direction:ltr}
+
 </style>
 </head>
 <body>
@@ -260,14 +288,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="videoCard scrollVideo">
         <span class="videoBadge">الفيديو الأول</span>
         <div class="videoFrame">
-          <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" title="Video 1" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/gkGtL6szVdw?autoplay=1&mute=1&playsinline=1" title="Video 1" allowfullscreen></iframe>
         </div>
       </div>
 
       <div class="videoCard scrollVideo">
         <span class="videoBadge">الفيديو الثاني</span>
         <div class="videoFrame">
-          <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" title="Video 2" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ?autoplay=1&mute=1&playsinline=1" title="Video 2" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -425,12 +453,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <div class="videoFloat" id="floatVideo1">
   <div class="videoFloatTitle">الجمهورية لنقل العفش بأمان</div>
-  <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/gkGtL6szVdw?autoplay=1&mute=1&playsinline=1" allowfullscreen></iframe>
 </div>
 
 <div class="videoFloat" id="floatVideo2">
   <div class="videoFloatTitle">نقدم جميع خدمات نقل العفش</div>
-  <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ?autoplay=1&mute=1&playsinline=1" allowfullscreen></iframe>
 </div>
 
 <script>
@@ -439,9 +467,49 @@ window.addEventListener("scroll",()=>{
  const scroll=document.documentElement.scrollTop;
  const max=document.documentElement.scrollHeight-window.innerHeight;
  const percent=max ? (scroll/max)*100 : 0;
- document.getElementById("floatVideo1").classList.toggle("show", percent>=25 && percent<50);
- document.getElementById("floatVideo2").classList.toggle("show", percent>=50);
+ document.getElementById("floatVideo1").classList.toggle("show", percent>=5 && percent<8);
+ document.getElementById("floatVideo2").classList.toggle("show", percent>=8);
 });
 </script>
+
+<a class="floatingCall" href="tel:01068952213">
+<i class="fa-solid fa-phone"></i>
+<span>اتصل الآن<br><strong>01068952213</strong></span>
+</a>
+
+
+<script>
+(function(){
+const v1=document.getElementById("floatVideo1");
+const v2=document.getElementById("floatVideo2");
+const f1=v1.querySelector("iframe");
+const f2=v2.querySelector("iframe");
+const s1=f1.src;
+const s2=f2.src;
+
+window.addEventListener("scroll",()=>{
+ const max=document.documentElement.scrollHeight-window.innerHeight;
+ const percent=max ? (window.scrollY/max)*100 : 0;
+
+ if(percent>=5 && percent<8){
+   v1.classList.add("show");
+   v2.classList.remove("show");
+   f1.src=s1;
+   f2.src="";
+ }
+ else if(percent>=8){
+   v1.classList.remove("show");
+   v2.classList.add("show");
+   f2.src=s2;
+   f1.src="";
+ }
+ else{
+   v1.classList.remove("show");
+   v2.classList.remove("show");
+ }
+});
+})();
+</script>
+
 </body>
 </html>
