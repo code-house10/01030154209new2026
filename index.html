@@ -517,26 +517,17 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 
 
-<div class="videoFloat" id="floatVideo1"><button type="button" class="videoClose" data-close-video="1">×</button>
+<div class="videoFloat" id="floatVideo1"><button type="button" id="closeVideo1" class="videoClose">×</button>
   <div class="videoFloatTitle">الجمهورية لنقل العفش بأمان</div>
   <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" allowfullscreen></iframe>
 </div>
 
-<div class="videoFloat" id="floatVideo2"><button type="button" class="videoClose" data-close-video="2">×</button>
+<div class="videoFloat" id="floatVideo2"><button type="button" id="closeVideo2" class="videoClose">×</button>
   <div class="videoFloatTitle">نقدم جميع خدمات نقل العفش</div>
   <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" allowfullscreen></iframe>
 </div>
 
-<script>
 
-window.addEventListener("scroll",()=>{
- const scroll=document.documentElement.scrollTop;
- const max=document.documentElement.scrollHeight-window.innerHeight;
- const percent=max ? (scroll/max)*100 : 0;
- document.getElementById("floatVideo1").classList.toggle("show", percent>=5 && percent<8);
- document.getElementById("floatVideo2").classList.toggle("show", percent>=12);
-});
-</script>
 
 <a class="floatingCall" href="tel:01068952213">
 <i class="fa-solid fa-phone"></i>
@@ -545,135 +536,58 @@ window.addEventListener("scroll",()=>{
 
 
 
+
 <script>
 (function(){
-const v1=document.getElementById("floatVideo1");
-const v2=document.getElementById("floatVideo2");
-const f1=v1.querySelector("iframe");
-const f2=v2.querySelector("iframe");
+ const v1=document.getElementById("floatVideo1");
+ const v2=document.getElementById("floatVideo2");
+ const c1=document.getElementById("closeVideo1");
+ const c2=document.getElementById("closeVideo2");
 
-let shown1=false;
-let shown2=false;
+ let closed1=localStorage.getItem("closedVideo1")==="true";
+ let closed2=localStorage.getItem("closedVideo2")==="true";
 
-window.addEventListener("scroll",()=>{
- const max=document.documentElement.scrollHeight-window.innerHeight;
- const percent=max ? (window.scrollY/max)*100 : 0;
+ if(closed1 && v1) v1.remove();
+ if(closed2 && v2) v2.remove();
 
- if(percent>=5 && percent<12 && !closedVideo1 && localStorage.getItem("closedVideo1") !== "true"){
-   v1.classList.add("show");
-   v2.classList.remove("show");
-
-   if(!shown1){
-     f1.src = f1.src || "https://www.youtube.com/embed/gkGtL6szVdw";
-     shown1=true;
-   }
+ function closeVideo(el,key){
+   if(!el) return;
+   el.style.display="none";
+   el.classList.remove("show");
+   localStorage.setItem(key,"true");
  }
 
- if(percent>=12 && !closedVideo2 && localStorage.getItem("closedVideo2") !== "true"){
-   v1.classList.remove("show");
-   v2.classList.add("show");
-
-   if(!shown2){
-     f2.src = f2.src || "https://www.youtube.com/embed/2YZq6hFBkFQ";
-     shown2=true;
-   }
+ if(c1){
+   c1.addEventListener("click",function(e){
+     e.preventDefault();
+     e.stopImmediatePropagation();
+     closeVideo(v1,"closedVideo1");
+   });
  }
-});
-})();
-</script>
 
+ if(c2){
+   c2.addEventListener("click",function(e){
+     e.preventDefault();
+     e.stopImmediatePropagation();
+     closeVideo(v2,"closedVideo2");
+   });
+ }
 
+ window.addEventListener("scroll",function(){
+   const max=document.documentElement.scrollHeight-window.innerHeight;
+   const percent=max ? (window.scrollY/max)*100 : 0;
 
-<script>
-let closedVideo1 = localStorage.getItem("closedVideo1") === "true";
-let closedVideo2 = localStorage.getItem("closedVideo2") === "true";
+   if(percent>=5 && percent<12 && !closed1 && v1){
+      v1.style.display="block";
+      v1.classList.add("show");
+   }
 
-window.closeFloatVideo = function(num){
-  if(num === 1){
-    closedVideo1 = true;
-    localStorage.setItem("closedVideo1","true");
-    document.getElementById("floatVideo1").classList.remove("show");
-  }
-  if(num === 2){
-    closedVideo2 = true;
-    localStorage.setItem("closedVideo2","true");
-    document.getElementById("floatVideo2").classList.remove("show");
-  }
-}
-  if(num === 2){
-    closedVideo2 = true;
-    localStorage.setItem("closedVideo2","true");
-    document.getElementById("floatVideo2").classList.remove("show");
-  }
-}
-</script>
-
-
-<script>
-document.querySelectorAll(".videoFloat iframe").forEach(frame=>{
- frame.addEventListener("load",()=>{
-   frame.classList.add("loaded");
+   if(percent>=12 && !closed2 && v2){
+      if(v1) v1.classList.remove("show");
+      v2.style.display="block";
+      v2.classList.add("show");
+   }
  });
-});
-</script>
-
-
-<script>
-(function(){
- if(localStorage.getItem("closedVideo1")==="true"){
-   const v=document.getElementById("floatVideo1");
-   if(v) v.classList.remove("show");
- }
- if(localStorage.getItem("closedVideo2")==="true"){
-   const v=document.getElementById("floatVideo2");
-   if(v) v.classList.remove("show");
- }
-})();
-</script>
-
-
-
-
-
-<script>
-(function(){
-  function hideVideo(id, key){
-    const video=document.getElementById(id);
-    if(video){
-      video.classList.remove("show");
-      video.style.display="none";
-    }
-    localStorage.setItem(key,"true");
-  }
-
-  const c1=document.getElementById("closeVideo1");
-  const c2=document.getElementById("closeVideo2");
-
-  if(c1){
-    c1.onclick=function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      hideVideo("floatVideo1","closedVideo1");
-    };
-  }
-
-  if(c2){
-    c2.onclick=function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      hideVideo("floatVideo2","closedVideo2");
-    };
-  }
-
-  if(localStorage.getItem("closedVideo1")==="true"){
-    const v=document.getElementById("floatVideo1");
-    if(v) v.style.display="none";
-  }
-
-  if(localStorage.getItem("closedVideo2")==="true"){
-    const v=document.getElementById("floatVideo2");
-    if(v) v.style.display="none";
-  }
 })();
 </script>
 
