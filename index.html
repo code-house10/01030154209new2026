@@ -517,12 +517,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 
 
-<div class="videoFloat" id="floatVideo1"><button type="button" id="closeVideo1" class="videoClose">×</button>
+<div class="videoFloat" id="floatVideo1"><button type="button" class="videoClose" data-close-video="1">×</button>
   <div class="videoFloatTitle">الجمهورية لنقل العفش بأمان</div>
   <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" allowfullscreen></iframe>
 </div>
 
-<div class="videoFloat" id="floatVideo2"><button type="button" id="closeVideo2" class="videoClose">×</button>
+<div class="videoFloat" id="floatVideo2"><button type="button" class="videoClose" data-close-video="2">×</button>
   <div class="videoFloatTitle">نقدم جميع خدمات نقل العفش</div>
   <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" allowfullscreen></iframe>
 </div>
@@ -537,57 +537,83 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
+
+
+
+
+
+
+<script>
+document.querySelectorAll(".videoFloat iframe").forEach(frame=>{
+ frame.addEventListener("load",()=>{
+   frame.classList.add("loaded");
+ });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
 <script>
 (function(){
- const v1=document.getElementById("floatVideo1");
- const v2=document.getElementById("floatVideo2");
- const c1=document.getElementById("closeVideo1");
- const c2=document.getElementById("closeVideo2");
+  const v1 = document.getElementById("floatVideo1");
+  const v2 = document.getElementById("floatVideo2");
 
- let closed1=localStorage.getItem("closedVideo1")==="true";
- let closed2=localStorage.getItem("closedVideo2")==="true";
+  const isClosed = key => localStorage.getItem(key) === "true";
 
- if(closed1 && v1) v1.remove();
- if(closed2 && v2) v2.remove();
+  function hidePermanently(video, key){
+    if(!video) return;
+    video.classList.remove("show");
+    video.style.display = "none";
+    localStorage.setItem(key, "true");
 
- function closeVideo(el,key){
-   if(!el) return;
-   el.style.display="none";
-   el.classList.remove("show");
-   localStorage.setItem(key,"true");
- }
+    // Stop the video immediately after closing it.
+    const frame = video.querySelector("iframe");
+    if(frame){
+      frame.dataset.src = frame.src;
+      frame.src = "about:blank";
+    }
+  }
 
- if(c1){
-   c1.addEventListener("click",function(e){
-     e.preventDefault();
-     e.stopImmediatePropagation();
-     closeVideo(v1,"closedVideo1");
-   });
- }
+  document.querySelectorAll(".videoClose[data-close-video]").forEach(button => {
+    button.addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      const number = this.dataset.closeVideo;
+      hidePermanently(document.getElementById("floatVideo" + number), "closedVideo" + number);
+    });
+  });
 
- if(c2){
-   c2.addEventListener("click",function(e){
-     e.preventDefault();
-     e.stopImmediatePropagation();
-     closeVideo(v2,"closedVideo2");
-   });
- }
+  // Keep dismissed videos hidden on reload and future visits in this browser.
+  if(isClosed("closedVideo1") && v1) v1.style.display = "none";
+  if(isClosed("closedVideo2") && v2) v2.style.display = "none";
 
- window.addEventListener("scroll",function(){
-   const max=document.documentElement.scrollHeight-window.innerHeight;
-   const percent=max ? (window.scrollY/max)*100 : 0;
+  function updateFloatingVideos(){
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = max ? (window.scrollY / max) * 100 : 0;
+    const closed1 = isClosed("closedVideo1");
+    const closed2 = isClosed("closedVideo2");
 
-   if(percent>=5 && percent<12 && !closed1 && v1){
-      v1.style.display="block";
-      v1.classList.add("show");
-   }
+    if(v1 && !closed1){
+      v1.classList.toggle("show", percent >= 5 && percent < 12);
+    }
 
-   if(percent>=12 && !closed2 && v2){
-      if(v1) v1.classList.remove("show");
-      v2.style.display="block";
-      v2.classList.add("show");
-   }
- });
+    if(v2 && !closed2){
+      v2.classList.toggle("show", percent >= 12);
+    }
+
+    if(percent >= 12 && v1) v1.classList.remove("show");
+  }
+
+  window.addEventListener("scroll", updateFloatingVideos, {passive:true});
+  updateFloatingVideos();
 })();
 </script>
 
