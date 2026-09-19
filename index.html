@@ -225,7 +225,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .videoClose{
  position:absolute;
  top:10px;
- right:10px;
+ left:10px;
  width:38px;
  height:38px;
  border-radius:50%;
@@ -241,6 +241,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 .videoClose:hover{
  background:#19b514;
+}
+
+
+.videoFloat{
+ background-size:cover;
+ background-position:center;
+ background-repeat:no-repeat;
+}
+.videoFloat iframe{
+ background:#111 url('https://img.youtube.com/vi/gkGtL6szVdw/hqdefault.jpg') center/cover no-repeat;
+}
+#floatVideo2 iframe{
+ background-image:url('https://img.youtube.com/vi/2YZq6hFBkFQ/hqdefault.jpg');
+}
+.videoFloat iframe{
+ opacity:0;
+ transition:opacity .4s ease;
+}
+.videoFloat iframe.loaded{
+ opacity:1;
 }
 
 </style>
@@ -310,14 +330,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="videoCard scrollVideo">
         <span class="videoBadge">الفيديو الأول</span>
         <div class="videoFrame">
-          <iframe src="https://www.youtube.com/embed/gkGtL6szVdw?autoplay=1&mute=1&playsinline=1" title="Video 1" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" title="Video 1" allowfullscreen></iframe>
         </div>
       </div>
 
       <div class="videoCard scrollVideo">
         <span class="videoBadge">الفيديو الثاني</span>
         <div class="videoFrame">
-          <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ?autoplay=1&mute=1&playsinline=1" title="Video 2" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" title="Video 2" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -475,12 +495,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <div class="videoFloat" id="floatVideo1"><button class="videoClose" onclick="closeFloatVideo(1)">×</button>
   <div class="videoFloatTitle">الجمهورية لنقل العفش بأمان</div>
-  <iframe src="https://www.youtube.com/embed/gkGtL6szVdw?autoplay=1&mute=1&playsinline=1" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" allowfullscreen></iframe>
 </div>
 
 <div class="videoFloat" id="floatVideo2"><button class="videoClose" onclick="closeFloatVideo(2)">×</button>
   <div class="videoFloatTitle">نقدم جميع خدمات نقل العفش</div>
-  <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ?autoplay=1&mute=1&playsinline=1" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" allowfullscreen></iframe>
 </div>
 
 <script>
@@ -490,7 +510,7 @@ window.addEventListener("scroll",()=>{
  const max=document.documentElement.scrollHeight-window.innerHeight;
  const percent=max ? (scroll/max)*100 : 0;
  document.getElementById("floatVideo1").classList.toggle("show", percent>=5 && percent<8);
- document.getElementById("floatVideo2").classList.toggle("show", percent>=8);
+ document.getElementById("floatVideo2").classList.toggle("show", percent>=12);
 });
 </script>
 
@@ -519,7 +539,7 @@ window.addEventListener("scroll",()=>{
    f1.src=s1;
    f2.src="";
  }
- else if(percent>=8){
+ else if(percent>=12){
    v1.classList.remove("show");
    if(!closedVideo2){ v2.classList.add("show"); }
    f2.src=s2;
@@ -548,6 +568,15 @@ function closeFloatVideo(num){
     document.getElementById("floatVideo2").classList.remove("show");
   }
 }
+</script>
+
+
+<script>
+document.querySelectorAll(".videoFloat iframe").forEach(frame=>{
+ frame.addEventListener("load",()=>{
+   frame.classList.add("loaded");
+ });
+});
 </script>
 
 </body>
