@@ -165,6 +165,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .videoBadge{display:inline-block;background:var(--softGreen);color:var(--greenDark);padding:8px 16px;border-radius:99px;font-weight:900;margin-bottom:12px}
     @media(min-width:700px){.videoFrame{padding-top:56.25%}}
 
+
+.videoFloat{
+ position:fixed;
+ right:25px;
+ top:50%;
+ transform:translateY(-50%) translateX(120%);
+ width:280px;
+ z-index:180;
+ background:#fff;
+ border-radius:24px;
+ padding:12px;
+ box-shadow:0 25px 80px rgba(0,0,0,.25);
+ transition:.6s ease;
+}
+.videoFloat.show{transform:translateY(-50%) translateX(0)}
+.videoFloat iframe{width:100%;height:420px;border:0;border-radius:18px}
+.videoFloatTitle{
+ font-size:18px;
+ font-weight:900;
+ text-align:center;
+ margin:8px 0 12px;
+ color:#25292c;
+}
+@media(max-width:600px){
+ .videoFloat{width:220px;right:10px}
+ .videoFloat iframe{height:330px}
+}
+
 </style>
 </head>
 <body>
@@ -179,7 +207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="headerLogo" href="#home" aria-label="شعار الجمهورية إكسبريس لنقل العفش"><img src="https://ik.imagekit.io/mkek1asn5/images/logo.png?updatedAt=1773687772767" alt="شعار الجمهورية إكسبريس لنقل العفش"></a>
       <nav class="links"><a href="#home">الرئيسية</a><a href="#services">الخدمات</a><a href="#areas">المناطق</a><a href="#process">خطوات العمل</a><a href="#gallery">أعمالنا</a><a href="#contact">اتصل بنا</a></nav>
       <a class="headerTitle" href="#home" aria-label="الجمهورية إكسبريس لنقل العفش">الجمهورية إكسبريس لنقل العفش<span>نقل — تغليف — ونش رفع</span></a>
-      <div class="actions"><a class="whatsIcon" href="https://wa.me/201068952213" target="_blank" rel="noopener" aria-label="واتساب 01068952213"><i class="fa-brands fa-whatsapp"></i></a><button class="btn primary js-open-call" data-source="header_primary_call" type="button"><i class="fa-solid fa-phone"></i> 01068952213</button></div>
+      <div class="actions"><a class="whatsIcon" href="https://wa.me/201211920744" target="_blank" rel="noopener" aria-label="واتساب 01068952213"><i class="fa-brands fa-whatsapp"></i></a><button class="btn primary js-open-call" data-source="header_primary_call" type="button"><i class="fa-solid fa-phone"></i> 01068952213</button></div>
       <button class="menuBtn" id="menuBtn" aria-label="فتح القائمة"><i class="fa-solid fa-bars"></i></button>
     </div>
     <div class="mobileMenu container" id="mobileMenu"><a href="#home">الرئيسية</a><a href="#services">الخدمات</a><a href="#areas">المناطق</a><a href="#process">خطوات العمل</a><a href="#gallery">أعمالنا</a><a href="#contact">اتصل بنا</a><button class="js-open-call" data-source="mobile_menu_primary_call" type="button">اتصل الآن 01068952213</button></div>
@@ -213,7 +241,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <section class="trust"><div class="container trustGrid" id="trust"></div></section>
-    <section class="section" id="about"><div class="container grid2"><div class="collage reveal"><div class="col"><div class="pic tall morph1"><img src="https://ik.imagekit.io/mkek1asn5/elmostafa_mostafa/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D9%86%D9%82%D9%84-%D8%B9%D9%81%D8%B4-%D9%85%D8%AC%D9%87%D8%B2%D8%A92.webp?updatedAt=1764187991033" alt="سيارات نقل"></div><div class="pic short"><img src="https://ik.imagekit.io/mkek1asn5/Ossama2/glass-packing.webp?updatedAt=1767129449605" alt="تغليف الزجاج"></div></div><div class="col"><div class="pic short"><img src="https://ik.imagekit.io/mkek1asn5/images/abdallaha_zain/movers.webp?updatedAt=1763922038276" alt="عمال نقل"></div><div class="pic tall morph2"><img src="https://ik.imagekit.io/mkek1asn5/images/%D8%AA%D8%BA%D9%84%D9%8A%D9%81-%D8%A2%D9%85%D9%86-%D9%88%D9%85%D9%88%D8%A7%D8%AF-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9.webp?updatedAt=1763594183750" alt="تغليف آمن"></div></div><div class="exp"><b>15+</b><span>سنة خبرة في النقل والتغليف</span></div></div><div class="reveal"><span class="eyebrow"><i class="fa-solid fa-sparkles"></i> من نحن</span><h2 class="title">الجمهورية إكسبريس لنقل العفش يحافظ على أثاثك كأنه أثاثنا</h2><p class="text">نساعدك على نقل أثاثك براحة كاملة من المعاينة والتغليف حتى النقل والتركيب في المكان الجديد. نتعامل مع غرف النوم، الأجهزة، النجف، الزجاج، والأثاث المكتبي بعناية.</p><div class="checks" id="checks"></div><div class="heroBtns"><button class="btn primary js-open-call" data-source="about_call" type="button"><i class="fa-solid fa-phone"></i> احجز معاينة الآن</button><a class="btn softBtn" href="https://wa.me/201068952213" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب سريع</a></div></div></div></section>
+    <section class="section" id="about"><div class="container grid2"><div class="collage reveal"><div class="col"><div class="pic tall morph1"><img src="https://ik.imagekit.io/mkek1asn5/elmostafa_mostafa/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D9%86%D9%82%D9%84-%D8%B9%D9%81%D8%B4-%D9%85%D8%AC%D9%87%D8%B2%D8%A92.webp?updatedAt=1764187991033" alt="سيارات نقل"></div><div class="pic short"><img src="https://ik.imagekit.io/mkek1asn5/Ossama2/glass-packing.webp?updatedAt=1767129449605" alt="تغليف الزجاج"></div></div><div class="col"><div class="pic short"><img src="https://ik.imagekit.io/mkek1asn5/images/abdallaha_zain/movers.webp?updatedAt=1763922038276" alt="عمال نقل"></div><div class="pic tall morph2"><img src="https://ik.imagekit.io/mkek1asn5/images/%D8%AA%D8%BA%D9%84%D9%8A%D9%81-%D8%A2%D9%85%D9%86-%D9%88%D9%85%D9%88%D8%A7%D8%AF-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9.webp?updatedAt=1763594183750" alt="تغليف آمن"></div></div><div class="exp"><b>15+</b><span>سنة خبرة في النقل والتغليف</span></div></div><div class="reveal"><span class="eyebrow"><i class="fa-solid fa-sparkles"></i> من نحن</span><h2 class="title">الجمهورية إكسبريس لنقل العفش يحافظ على أثاثك كأنه أثاثنا</h2><p class="text">نساعدك على نقل أثاثك براحة كاملة من المعاينة والتغليف حتى النقل والتركيب في المكان الجديد. نتعامل مع غرف النوم، الأجهزة، النجف، الزجاج، والأثاث المكتبي بعناية.</p><div class="checks" id="checks"></div><div class="heroBtns"><button class="btn primary js-open-call" data-source="about_call" type="button"><i class="fa-solid fa-phone"></i> احجز معاينة الآن</button><a class="btn softBtn" href="https://wa.me/201211920744" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب سريع</a></div></div></div></section>
     <section class="section soft" id="services"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-sparkles"></i> خدماتنا</span><h2 class="title">كل خدمات نقل العفش في مكان واحد</h2><p class="text">اختار الخدمة المناسبة أو اتصل بنا لتحديد أفضل حل حسب حجم العفش والدور والمسافة.</p></div><div class="cards" id="servicesGrid"></div></div></section>
     <section class="section white" id="areas"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-location-dot"></i> مناطق الخدمة</span><h2 class="title">نصل إليك في القاهرة والجيزة والمدن الجديدة</h2><p class="text">خدمة منظمة وسريعة في أكثر المناطق طلبًا مع إمكانية السؤال عن منطقتك عبر واتساب.</p></div><div class="cards" id="areasGrid"></div></div></section>
     <section class="section" id="process"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-list-check"></i> طريقة العمل</span><h2 class="title">خطوات بسيطة وسريعة لنقل عفشك</h2><p class="text">كل خطوة واضحة من أول مكالمتك حتى تسليم العفش في المكان الجديد.</p></div><div class="steps" id="stepsGrid"></div></div></section>
@@ -250,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="section soft"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-star"></i> لماذا نحن؟</span><h2 class="title">لماذا تختار الجمهورية إكسبريس لنقل العفش؟</h2><p class="text">سرعة، أمان، التزام، وأسعار مناسبة في خدمة واحدة متكاملة.</p></div><div class="features" id="featuresGrid"></div></div></section>
     <section class="section white"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-box-open"></i> باقات سريعة</span><h2 class="title">اختار الباقة الأقرب لاحتياجك</h2><p class="text">الباقات ليست أسعار نهائية لكنها تساعدك تفهم نطاق الخدمة قبل الاتصال.</p></div><div class="packs" id="packsGrid"></div></div></section>
     <section class="section white"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-comments"></i> آراء العملاء</span><h2 class="title">كلام العملاء هو أكبر ضمان</h2><p class="text">نماذج تقييمات يمكن استبدالها لاحقًا بتقييمات حقيقية.</p></div><div class="reviews" id="reviewsGrid"></div></div></section>
-    <section class="section soft"><div class="container sensitive"><div class="grid2"><div class="sensImg reveal"><img src="https://ik.imagekit.io/mkek1asn5/elmostafa_mostafa/%D9%81%D9%83-%D9%88%D8%AA%D8%B1%D9%83%D9%8A%D8%A8-%D8%A7%D9%84%D9%86%D8%AC%D9%81-%D9%88%D8%AA%D8%BA%D9%84%D9%8A%D9%81%D9%87.webp?updatedAt=1764187988447" alt="تغليف النجف"></div><div class="reveal"><span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> ضمانات قبل النقل</span><h2 class="title">نراجع القطع الحساسة قبل التحميل</h2><p class="text">النجف والزجاج والشاشات والرخام والتحف تحتاج عناية خاصة، لذلك نحدد طريقة تغليفها ونقلها قبل التحميل.</p><div class="checks"><div class="check"><i class="fa-solid fa-shield-halved"></i> تغليف منفصل للزجاج</div><div class="check"><i class="fa-solid fa-shield-halved"></i> حماية الشاشات والأجهزة</div><div class="check"><i class="fa-solid fa-shield-halved"></i> تثبيت القطع داخل السيارة</div><div class="check"><i class="fa-solid fa-shield-halved"></i> فريق متخصص</div></div><a class="btn primary" href="https://wa.me/201068952213" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> اسأل عن التغليف</a></div></div></div></section>
+    <section class="section soft"><div class="container sensitive"><div class="grid2"><div class="sensImg reveal"><img src="https://ik.imagekit.io/mkek1asn5/elmostafa_mostafa/%D9%81%D9%83-%D9%88%D8%AA%D8%B1%D9%83%D9%8A%D8%A8-%D8%A7%D9%84%D9%86%D8%AC%D9%81-%D9%88%D8%AA%D8%BA%D9%84%D9%8A%D9%81%D9%87.webp?updatedAt=1764187988447" alt="تغليف النجف"></div><div class="reveal"><span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> ضمانات قبل النقل</span><h2 class="title">نراجع القطع الحساسة قبل التحميل</h2><p class="text">النجف والزجاج والشاشات والرخام والتحف تحتاج عناية خاصة، لذلك نحدد طريقة تغليفها ونقلها قبل التحميل.</p><div class="checks"><div class="check"><i class="fa-solid fa-shield-halved"></i> تغليف منفصل للزجاج</div><div class="check"><i class="fa-solid fa-shield-halved"></i> حماية الشاشات والأجهزة</div><div class="check"><i class="fa-solid fa-shield-halved"></i> تثبيت القطع داخل السيارة</div><div class="check"><i class="fa-solid fa-shield-halved"></i> فريق متخصص</div></div><a class="btn primary" href="https://wa.me/201211920744" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> اسأل عن التغليف</a></div></div></div></section>
     <section class="section white" id="serviceAreas">
       <div class="container">
         <div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-location-dot"></i> مناطق الخدمة</span><h2 class="title">نصل إليك في أهم مناطق القاهرة والجيزة</h2><p class="text">خدمة نقل عفش وتغليف وونش رفع في المناطق التالية مع متابعة سريعة للحجز.</p></div>
@@ -262,24 +290,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
     <section class="section"><div class="container"><div class="center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> أسئلة مهمة</span><h2 class="title">قبل ما تتصل بنا</h2><p class="text">إجابات سريعة على أكثر الأسئلة قبل الحجز.</p></div><div class="faq" id="faqGrid"></div></div></section>
-    <section class="section contact" id="contact"><div class="container grid2 contactGrid"><div class="contactCard reveal"><span class="eyebrow" style="background:rgba(255,255,255,.1);color:#fff">اتصل بنا</span><h2 class="title">احجز نقل عفشك الآن</h2><p>تواصل معنا مباشرة واحصل على سعر سريع حسب تفاصيل النقل.</p><button class="contactItem js-open-call" data-source="contact_card_primary_call" type="button"><i class="fa-solid fa-phone"></i><div><span>رقم الاتصال الأول</span><b dir="ltr">01068952213</b></div></button><button class="contactItem js-open-secondary-call" data-source="contact_card_secondary_call" type="button"><i class="fa-solid fa-phone" style="background:var(--blue)"></i><div><span>رقم الاتصال الثاني</span><b dir="ltr"></b></div></button><a class="contactItem" href="https://wa.me/201068952213" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" style="background:var(--wa)"></i><div><span>واتساب</span><b dir="ltr">01068952213</b></div></a><div class="contactItem"><i class="fa-solid fa-location-dot" style="background:#fff;color:var(--greenDark)"></i><div><span>مناطق الخدمة</span><b>القاهرة — الجيزة — المدن الجديدة</b></div></div></div><form class="form reveal" id="quoteForm"><h3 class="title" style="font-size:32px">اطلب عرض سعر سريع</h3><p class="text">املأ البيانات واضغط إرسال واتساب لفتح رسالة جاهزة.</p><div class="formGrid"><input id="name" placeholder="الاسم"><input id="phone" placeholder="رقم الهاتف"><input id="area" placeholder="المنطقة"><select id="service"><option>نقل عفش كامل</option><option>ونش رفع</option><option>تغليف فقط</option><option>فك وتركيب</option><option>نقل مكاتب وشركات</option></select><textarea id="details" placeholder="اكتب تفاصيل سريعة: الدور، عدد الغرف، هل يوجد أسانسير؟"></textarea></div><div class="formBtns"><button class="btn primary" type="submit"><i class="fa-brands fa-whatsapp"></i> إرسال واتساب</button><button class="btn darkBtn js-open-call" data-source="form_call" type="button"><i class="fa-solid fa-phone"></i> اتصال مباشر</button></div></form></div></section>
+    <section class="section contact" id="contact"><div class="container grid2 contactGrid"><div class="contactCard reveal"><span class="eyebrow" style="background:rgba(255,255,255,.1);color:#fff">اتصل بنا</span><h2 class="title">احجز نقل عفشك الآن</h2><p>تواصل معنا مباشرة واحصل على سعر سريع حسب تفاصيل النقل.</p><button class="contactItem js-open-call" data-source="contact_card_primary_call" type="button"><i class="fa-solid fa-phone"></i><div><span>رقم الاتصال الأول</span><b dir="ltr">01068952213</b></div></button><button class="contactItem js-open-secondary-call" data-source="contact_card_secondary_call" type="button"><i class="fa-solid fa-phone" style="background:var(--blue)"></i><div><span>رقم الاتصال الثاني</span><b dir="ltr"></b></div></button><a class="contactItem" href="https://wa.me/201211920744" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" style="background:var(--wa)"></i><div><span>واتساب</span><b dir="ltr">01068952213</b></div></a><div class="contactItem"><i class="fa-solid fa-location-dot" style="background:#fff;color:var(--greenDark)"></i><div><span>مناطق الخدمة</span><b>القاهرة — الجيزة — المدن الجديدة</b></div></div></div><form class="form reveal" id="quoteForm"><h3 class="title" style="font-size:32px">اطلب عرض سعر سريع</h3><p class="text">املأ البيانات واضغط إرسال واتساب لفتح رسالة جاهزة.</p><div class="formGrid"><input id="name" placeholder="الاسم"><input id="phone" placeholder="رقم الهاتف"><input id="area" placeholder="المنطقة"><select id="service"><option>نقل عفش كامل</option><option>ونش رفع</option><option>تغليف فقط</option><option>فك وتركيب</option><option>نقل مكاتب وشركات</option></select><textarea id="details" placeholder="اكتب تفاصيل سريعة: الدور، عدد الغرف، هل يوجد أسانسير؟"></textarea></div><div class="formBtns"><button class="btn primary" type="submit"><i class="fa-brands fa-whatsapp"></i> إرسال واتساب</button><button class="btn darkBtn js-open-call" data-source="form_call" type="button"><i class="fa-solid fa-phone"></i> اتصال مباشر</button></div></form></div></section>
   </main>
 
-  <footer class="footer"><div class="container footerGrid"><div><a class="brand" href="#home"><span class="logoBox"><img src="https://ik.imagekit.io/mkek1asn5/images/logo.webp?updatedAt=1765274060860" alt="logo"></span><div><b>الجمهورية إكسبريس لنقل العفش</b><span>نقل — تغليف — ونش رفع</span></div></a><p>خدمة نقل عفش آمنة وسريعة مع تغليف احترافي، ونش رفع، فك وتركيب، وسيارات مجهزة.</p></div><div><h4>روابط سريعة</h4><a href="#home">الرئيسية</a><a href="#services">الخدمات</a><a href="#areas">المناطق</a><a href="#gallery">أعمالنا</a><a href="#contact">اتصل بنا</a></div><div><h4>تواصل معنا</h4><button class="link js-open-call" data-source="footer_primary_call" type="button" style="color:rgba(255,255,255,.75)"><i class="fa-solid fa-phone"></i> 01068952213</button><button class="link js-open-secondary-call" data-source="footer_secondary_call" type="button" style="color:rgba(255,255,255,.75)"><i class="fa-solid fa-phone"></i> </button><a href="https://wa.me/201068952213" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب 01068952213</a><a href="#contact"><i class="fa-regular fa-clock"></i> خدمة 24 ساعة</a></div></div><div class="container copy">جميع الحقوق محفوظة © الجمهورية إكسبريس لنقل العفش</div></footer>
+  <footer class="footer"><div class="container footerGrid"><div><a class="brand" href="#home"><span class="logoBox"><img src="https://ik.imagekit.io/mkek1asn5/images/logo.webp?updatedAt=1765274060860" alt="logo"></span><div><b>الجمهورية إكسبريس لنقل العفش</b><span>نقل — تغليف — ونش رفع</span></div></a><p>خدمة نقل عفش آمنة وسريعة مع تغليف احترافي، ونش رفع، فك وتركيب، وسيارات مجهزة.</p></div><div><h4>روابط سريعة</h4><a href="#home">الرئيسية</a><a href="#services">الخدمات</a><a href="#areas">المناطق</a><a href="#gallery">أعمالنا</a><a href="#contact">اتصل بنا</a></div><div><h4>تواصل معنا</h4><button class="link js-open-call" data-source="footer_primary_call" type="button" style="color:rgba(255,255,255,.75)"><i class="fa-solid fa-phone"></i> 01068952213</button><button class="link js-open-secondary-call" data-source="footer_secondary_call" type="button" style="color:rgba(255,255,255,.75)"><i class="fa-solid fa-phone"></i> </button><a href="https://wa.me/201211920744" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب 01068952213</a><a href="#contact"><i class="fa-regular fa-clock"></i> خدمة 24 ساعة</a></div></div><div class="container copy">جميع الحقوق محفوظة © الجمهورية إكسبريس لنقل العفش</div></footer>
 
-  <div class="floatingCalls" aria-label="أرقام الاتصال">
-    <button class="floatingAction floatingPrimary js-open-call" data-source="floating_primary_call" type="button" aria-label="اتصل على 01068952213"><i class="fa-solid fa-phone-volume"></i><span><small>اتصل الآن</small><strong>01068952213</strong></span></button>
-   
-  </div>
-  <a class="floatingWhatsapp" href="https://wa.me/201068952213" target="_blank" rel="noopener" aria-label="راسلنا على واتساب 01068952213"><i class="fa-brands fa-whatsapp"></i><span>واتساب 01068952213</span></a>
-  <div class="bottomBar"><div class="bottomGrid"><button class="call js-open-call" data-source="mobile_bottom_primary_call" type="button" aria-label="اتصل على 01068952213"><i class="fa-solid fa-phone"></i><span>اتصال أول</span><strong>01068952213</strong></button><button class="callSecond js-open-secondary-call" data-source="mobile_bottom_secondary_call" type="button" aria-label="اتصل على "><i class="fa-solid fa-phone"></i><span>اتصال ثانٍ</span><strong></strong></button><a class="wa" href="https://wa.me/201068952213" target="_blank" rel="noopener" aria-label="واتساب 01068952213"><i class="fa-brands fa-whatsapp"></i><span>واتساب</span><strong>01068952213</strong></a></div></div>
+  <a class="floatingWhatsapp" href="https://wa.me/201211920744" target="_blank" rel="noopener" aria-label="راسلنا على واتساب 01068952213"><i class="fa-brands fa-whatsapp"></i><span>واتساب 01068952213</span></a>
+  <div class="bottomBar"><div class="bottomGrid"><button class="call js-open-call" data-source="mobile_bottom_primary_call" type="button" aria-label="اتصل على 01068952213"><i class="fa-solid fa-phone"></i><span>اتصال أول</span><strong>01068952213</strong></button><button class="callSecond js-open-secondary-call" data-source="mobile_bottom_secondary_call" type="button" aria-label="اتصل على "><i class="fa-solid fa-phone"></i><span>اتصال ثانٍ</span><strong></strong></button><a class="wa" href="https://wa.me/201211920744" target="_blank" rel="noopener" aria-label="واتساب 01068952213"><i class="fa-brands fa-whatsapp"></i><span>واتساب</span><strong>01068952213</strong></a></div></div>
   <div class="modal" id="callModal" aria-hidden="true"><div class="modalBox"><button class="modalClose" id="closeModal" type="button" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button><div class="modalIcon"><i class="fa-solid fa-phone-volume"></i></div><h3 class="title" style="font-size:28px">تأكيد الاتصال</h3><p class="text">اضغط الزر التالي لإتمام الاتصال.</p><div class="modalPhone">01068952213</div><a class="btn primary" id="finalCallBtn" href="tel:01068952213"><i class="fa-solid fa-phone"></i> اتصل الآن</a></div></div><div class="modal" id="secondaryCallModal" aria-hidden="true"><div class="modalBox"><button class="modalClose" id="closeSecondaryModal" type="button" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button><div class="modalIcon" style="background:#eef0ff;color:#343b8f"><i class="fa-solid fa-phone-volume"></i></div><h3 class="title" style="font-size:28px">تأكيد الاتصال</h3><p class="text">اضغط الزر التالي لإتمام الاتصال بالرقم الثاني.</p><div class="modalPhone"></div><a class="btn" style="background:#343b8f;color:#fff" id="finalSecondaryCallBtn" href="tel:"><i class="fa-solid fa-phone"></i> اتصل الآن</a></div></div>
 
   <script>
     window.dataLayer = window.dataLayer || [];
     const PHONE = '01068952213';
     const SECONDARY_PHONE = '';
-    const WA = '201068952213';
+    const WA = '201211920744';
     const img = {
       tag:'https://ik.imagekit.io/mkek1asn5/elmostafa_mostafa/%D9%86%D9%82%D9%84-%D8%B9%D9%81%D8%B4-%D9%81%D9%89-%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D8%B9-%D8%A7%D9%84%D8%AE%D8%A7%D9%85%D8%B3.webp?updatedAt=1764187990380',
       zayed:'https://ik.imagekit.io/mkek1asn5/elmostafa_mostafa/%D9%86%D9%82%D9%84-%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D8%B4%D9%8A%D8%AE-%D8%B2%D8%A7%D9%8A%D8%AF.webp?updatedAt=1764187991046',
@@ -398,5 +422,26 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 </script>
 
+
+<div class="videoFloat" id="floatVideo1">
+  <div class="videoFloatTitle">الجمهورية لنقل العفش بأمان</div>
+  <iframe src="https://www.youtube.com/embed/gkGtL6szVdw" allowfullscreen></iframe>
+</div>
+
+<div class="videoFloat" id="floatVideo2">
+  <div class="videoFloatTitle">نقدم جميع خدمات نقل العفش</div>
+  <iframe src="https://www.youtube.com/embed/2YZq6hFBkFQ" allowfullscreen></iframe>
+</div>
+
+<script>
+
+window.addEventListener("scroll",()=>{
+ const scroll=document.documentElement.scrollTop;
+ const max=document.documentElement.scrollHeight-window.innerHeight;
+ const percent=max ? (scroll/max)*100 : 0;
+ document.getElementById("floatVideo1").classList.toggle("show", percent>=25 && percent<50);
+ document.getElementById("floatVideo2").classList.toggle("show", percent>=50);
+});
+</script>
 </body>
 </html>
